@@ -158,10 +158,6 @@
       <span lang="en">Ying Yu</span><span lang="zh">俞 颖</span>
     </a>
     <nav class="links">
-      <a href="#about"><span lang="en">About</span><span lang="zh">简介</span></a>
-      <a href="#news"><span lang="en">News</span><span lang="zh">动态</span></a>
-      <a href="#publications"><span lang="en">Publications</span><span lang="zh">论文</span></a>
-      <a href="#experience"><span lang="en">Experience</span><span lang="zh">经历</span></a>
     </nav>
     <div class="toggles">
       <button class="btn" id="langBtn" aria-label="Switch language">中文</button>
@@ -195,6 +191,10 @@
       <li>
         <svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
         <a href="https://scholar.google.com/citations?user=Rm592n8AAAAJ&hl=zh-EN">Google Scholar</a>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg>
+        <a href="https://orcid.org/0000-0002-6611-4831">ORCID</a>
       </li>
       <li>
         <svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>
@@ -235,21 +235,21 @@
           </span>
         </li>
         <li>
-          <span class="when">2024.10 – <span lang="en">2025.02></span>
+          <span class="when">2024.10 – 2025.02></span>
           <span class="what">
             <strong><span lang="en">Research Assistant</span><span lang="zh">科研助理</span></strong>
             <span><span lang="en">College of Environmental Sciences and Engineering, Peking University, China</span><span lang="zh">北京大学环境科学与工程学院</span></span>
           </span>
         </li>
         <li>
-          <span class="when">2019.09 – <span lang="en">2024.07</span>
+          <span class="when">2019.09 – 2024.07</span>
           <span class="what">
             <strong><span lang="en">Ph. D. in Environmental Science</span><span lang="zh">环境科学 博士</span></strong>
             <span><span lang="en">College of Environmental Sciences and Engineering, Peking University, China</span><span lang="zh">北京大学环境科学与工程学院</span></span>
           </span>
         </li>
         <li>
-          <span class="when">2015.09 – <span lang="en">2019.07</span>
+          <span class="when">2015.09 – 2019.07</span>
           <span class="what">
             <strong><span lang="en">B.Sc in Environmental Science</span><span lang="zh">环境科学 学士</span></strong>
             <span><span lang="en">College of Environmental Sciences and Engineering, Peking University, China </span><span lang="zh">北京大学环境科学与工程学院</span></span>
@@ -268,7 +268,7 @@
         <div class="pub-authors"><span class="me">Ying Yu</span>, Song Guo<sup>*</sup>, Rui Tan, Xinshi Ni, Zichao Wan, Chunxiang Ye, Min Hu</div>
         <div class="pub-venue">ACS ES&T Air, 2022</div>
         <div class="pub-links">
-          <a href="10.1021/acsestair.5c00135">DOI</a>
+          <a href="https://doi.org/10.1021/acsestair.5c00135">DOI</a>
         </div>
       </div>
       <div class="pub">
@@ -276,7 +276,7 @@
         <div class="pub-authors"><span class="me">Ying Yu</span>, Song Guo<sup>*</sup>, Hui Wang, Ruizhe Shen, Wenfei Zhu, Rui Tan, Kai Song, Zirui Zhang, Shuangde Li, Yunfa Chen, Min Hu</div>
         <div class="pub-venue">Environmental Science & Technology Letters, 2025</div>
         <div class="pub-links">
-          <a href="10.1021/acs.estlett.2c00207">DOI</a>
+          <a href="https://doi.org/10.1021/acs.estlett.2c00207">DOI</a>
         </div>
       </div>
       <div class="pub">
@@ -284,7 +284,7 @@
         <div class="pub-authors"><span class="me">Ying Yu</span>, Hui Wang, Tiantian Wang, Kai Song, Tianyi Tan, Zichao Wan, Yaqin Gao, Huabin Dong, Shiyi Chen, Limin Zeng, Min Hu, Hongli Wang, Shengrong Lou, Wenfei Zhu<sup>*</sup>, Song Guo<sup>*</sup></div>
         <div class="pub-venue">Atmospheric Environment, 2021</div>
         <div class="pub-links">
-          <a href="10.1016/j.atmosenv.2020.118043">DOI</a>
+          <a href="https://doi.org/10.1016/j.atmosenv.2020.118043">DOI</a>
         </div>
       </div>
     </section>
@@ -317,6 +317,16 @@
 
 <script>
   (function () {
+js
+    var nav = document.querySelector('nav.links');
+    document.querySelectorAll('main section[id]').forEach(function (s) {
+      var h = s.querySelector('h2');
+      if (!h) return;
+      var a = document.createElement('a');
+      a.href = '#' + s.id;
+      a.innerHTML = h.innerHTML;
+      nav.appendChild(a);
+    });
     var root = document.documentElement;
     var langBtn = document.getElementById('langBtn');
     var themeBtn = document.getElementById('themeBtn');
