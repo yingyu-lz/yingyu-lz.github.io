@@ -158,10 +158,6 @@
       <span lang="en">Ying Yu</span><span lang="zh">俞 颖</span>
     </a>
     <nav class="links"></nav>
-    <div class="toggles">
-      <button class="btn" id="langBtn" aria-label="Switch language">中文</button>
-      <button class="btn" id="themeBtn" aria-label="Toggle dark mode">◐</button>
-    </div>
   </div>
 </header>
 
@@ -323,37 +319,6 @@
       a.href = '#' + s.id;
       a.innerHTML = h.innerHTML;
       nav.appendChild(a);
-    });
-    var root = document.documentElement;
-    var langBtn = document.getElementById('langBtn');
-    var themeBtn = document.getElementById('themeBtn');
-
-    function get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } }
-    function set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
-
-    // 语言：优先读取上次选择，否则按浏览器语言
-    function applyLang(l) {
-      root.setAttribute('data-lang', l);
-      root.setAttribute('lang', l === 'zh' ? 'zh-CN' : 'en');
-      langBtn.textContent = l === 'zh' ? 'EN' : '中文';
-      document.title = l === 'zh' ? '俞颖 | 个人主页' : 'Ying Yu | Personal Homepage';
-    }
-    var savedLang = get('lang');
-    var lang = savedLang || ((navigator.language || '').toLowerCase().indexOf('zh') === 0 ? 'zh' : 'en');
-    applyLang(lang);
-    langBtn.addEventListener('click', function () {
-      lang = lang === 'zh' ? 'en' : 'zh';
-      applyLang(lang); set('lang', lang);
-    });
-
-    // 深色模式
-    var savedTheme = get('theme');
-    if (savedTheme) root.setAttribute('data-theme', savedTheme);
-    themeBtn.addEventListener('click', function () {
-      var isDark = root.getAttribute('data-theme') === 'dark' ||
-        (!root.getAttribute('data-theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-      var next = isDark ? 'light' : 'dark';
-      root.setAttribute('data-theme', next); set('theme', next);
     });
   })();
 </script>
